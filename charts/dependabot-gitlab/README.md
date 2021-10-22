@@ -110,6 +110,8 @@ By default chart installs instance of [redis](https://github.com/bitnami/charts/
 | serviceAccount.annotations | object | `{}` | Service account annotations |
 | serviceAccount.name | string | `""` | Service account name |
 | tolerations | list | `[]` | Tolerations |
+| web.extraVolumeMounts | string | `nil` |  |
+| web.extraVolumes | string | `nil` |  |
 | web.livenessProbe.enabled | bool | `true` | Enable liveness probe |
 | web.livenessProbe.failureThreshold | int | `5` | Liveness probe failure threshold |
 | web.livenessProbe.periodSeconds | int | `10` | Liveness probe period |
@@ -122,6 +124,8 @@ By default chart installs instance of [redis](https://github.com/bitnami/charts/
 | web.startupProbe.periodSeconds | int | `10` | Startup probe period |
 | web.startupProbe.timeoutSeconds | int | `3` | Startup probe timeout |
 | web.updateStrategy | object | `{"type":"RollingUpdate"}` | Set up strategy for web installation |
+| worker.extraVolumeMounts | string | `nil` |  |
+| worker.extraVolumes | string | `nil` |  |
 | worker.livenessProbe.enabled | bool | `true` | Enable liveness probe |
 | worker.livenessProbe.failureThreshold | int | `2` | Liveness probe failure threshold |
 | worker.livenessProbe.periodSeconds | int | `120` | Liveness probe period |

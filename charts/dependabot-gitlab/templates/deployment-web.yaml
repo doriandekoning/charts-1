@@ -69,6 +69,10 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- if .Values.web.extraVolumeMounts }}
+          volumeMounts:
+            {{- toYaml .Values.web.extraVolumeMounts | nindent 10 }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -84,4 +88,8 @@ spec:
       {{- with .Values.image.imagePullSecrets }}
       imagePullSecrets:
       {{- toYaml . | nindent 8}}
+      {{- end }}
+      {{- if .Values.web.extraVolumes }}
+      volumes:
+        {{- toYaml .Values.web.extraVolumes | nindent 8 }}
       {{- end }}

@@ -92,6 +92,10 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- if .Values.worker.extraVolumeMounts }}
+          volumeMounts:
+            {{- toYaml .Values.worker.extraVolumeMounts | nindent 10 }}
+          {{- end }}
       terminationGracePeriodSeconds: 300 # Large dependency files or docker images can take long time to process
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -108,4 +112,8 @@ spec:
       {{- with .Values.image.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8}}
+      {{- end }}
+      {{- if .Values.worker.extraVolumes }}
+      volumes:
+        {{- toYaml .Values.worker.extraVolumes | nindent 8 }}
       {{- end }}
